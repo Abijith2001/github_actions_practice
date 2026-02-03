@@ -1,0 +1,36 @@
+name: workflow_1
+on: push
+jobs:
+    lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: install
+          run: npm ci
+        - name: lint
+          run: npm run lint
+    test:
+      needs: lint
+      runs-on: ubuntu-latest
+      steps:
+        - name: install
+          run: npm ci
+        - name: test
+          run: npm run test
+    build:
+      needs: test
+      runs-on: ubuntu-latest
+      steps:
+        - name: install
+          run: npm ci
+        - name: build
+          run: npm run build
+    deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - name: install
+          run: npm ci
+        - name: deploy
+          run: echo "Deploy!!!"
+        
+

@@ -1,0 +1,8 @@
+name: workflow_2
+on:
+  issues:
+jobs:
+  print-context:
+    steps:
+      - name: Make use of github context
+        run: echo "${{ toJSON(github.event) }}"
