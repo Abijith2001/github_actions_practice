@@ -4,5 +4,7 @@ on:
 jobs:
   print-context:
     steps:
+      - name: repo
+        uses: actions/checkout@v4
       - name: Make use of github context
         run: echo "${{ toJSON(github.event) }}"
